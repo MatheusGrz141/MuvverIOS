@@ -41,7 +41,7 @@ export default function Footer() {
 
       {valuButtons.map((button) => (
         <Button style={styles.button} key={button.id}>
-          <Image style={styles.images} source={button.backImg} />
+          <Image style={styles.image} source={button.backImg} />
           <Text style={styles.textTravel}>{button.text}</Text>
         </Button>
       ))}
@@ -57,16 +57,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#e3e3e3',
     width: '100%',
-    height: '70px'
-
   },
   button: {
+    margin:'auto',
     display: 'flex',
     flexDirection: 'colllun',
     justifyContent: "center",
     alignContent: "center",
   },
-  images: {
+  image: {
     display: 'flex',
     width: '30px',
     height: '30px',
@@ -77,6 +76,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     color: 'black'
   },
-
-
 })

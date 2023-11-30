@@ -4,10 +4,8 @@ import {
   Button as ButtonNative,
   Image,
 } from "react-native";
-import React, { useState } from "react";
-
+import React from "react";
 import { useNavigation } from "@react-navigation/native";
-
 import { Text, Button } from "react-native-paper";
 
 export default function CreatedTravel() {
@@ -87,7 +85,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     backgroundColor: "green",
     position: 'relative',
-    top: 360,
+    top: 200,
     height: 50,
     justifyContent: 'center'
   },

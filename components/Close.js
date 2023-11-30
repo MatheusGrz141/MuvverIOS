@@ -4,7 +4,7 @@ import { useNavigation } from "@react-navigation/native";
 
 import Icon from "react-native-vector-icons/MaterialIcons";
 
-export default function Close({goTo}) {
+export default function Close({ goTo }) {
   const navigation = useNavigation();
 
   const navigateTo = () => {

@@ -1,15 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-
-import Feed from "./views/Feed";
-import Transports from "./views/Transports";
-import Volume from "./views/Volume";
-import Weight from "./views/Weight";
-import Price from "./views/Price";
-import Route from "./views/Route";
-import SendOrDeliver from "./views/SendOrDeliver";
-import Close from "./components/Close";
+import deliveryFeed from "./views/deliveryFeed";
+import deliveryVehicles from "./views/deliveryVehicles";
+import deliverySize from "./views/deliverySize";
+import deliveryWeight from "./views/deliveryWeight";
+import deliveryPrice from "./views/deliveryPrice";
+import deliveryPath from "./views/deliveryPath";
+import sendOrTravel from "./views/sendOrTravel";
 import CreatedTravel from "./views/CreatedTravel";
+import Close from "./components/Close";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,31 +19,17 @@ export default function App() {
 
         <Stack.Screen
           name="Feed"
-          component={Feed}
-          options={{ headerShown: false }}
+          component={deliveryFeed}
+          options={{ headerShown: false, }}
         />
         <Stack.Screen
-          name="Route"
-          component={Route}
-          options={{
-            title: "Ser um Muvver",
-            headerTitleAlign: "center",
-            headerStyle: {
-              backgroundColor: "black",
-              borderBottomWidth: 0,
-            },
-            headerTintColor: "lightgrey",
-            headerRight: () => <Close goTo="Feed" />,
-          }}
-        />
-        <Stack.Screen
-          name="CreatedTravel"
-          component={CreatedTravel}
-          options={{ headerShown: false }}
+          name="SendDeliver"
+          component={sendOrTravel}
+          options={{ title: "muvver" }}
         />
         <Stack.Screen
           name="Transports"
-          component={Transports}
+          component={deliveryVehicles}
           options={{
             title: "Ser um Muvver",
             headerTitleAlign: "center",
@@ -56,9 +41,30 @@ export default function App() {
             headerLeft: () => <Close goTo="SendDeliver" />,
           }}
         />
+
+        <Stack.Screen
+          name="CreatedTravel"
+          component={CreatedTravel}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="Route"
+          component={deliveryPath}
+          options={{
+            title: "Ser um Muvver",
+            headerTitleAlign: "center",
+            headerStyle: {
+              backgroundColor: "black",
+              borderBottomWidth: 0,
+            },
+            headerTintColor: "lightgrey",
+            headerRight: () => <Close goTo="Feed" />,
+          }}
+        />
+
         <Stack.Screen
           name="Volume"
-          component={Volume}
+          component={deliverySize}
           options={{
             title: "Ser um Muvver",
             headerTitleAlign: "center",
@@ -72,7 +78,7 @@ export default function App() {
         />
         <Stack.Screen
           name="Price"
-          component={Price}
+          component={deliveryPrice}
           options={{
             title: "Ser um Muvver",
             headerTitleAlign: "center",
@@ -86,7 +92,7 @@ export default function App() {
         />
         <Stack.Screen
           name="Weight"
-          component={Weight}
+          component={deliveryWeight}
           options={{
             title: "Ser um Muvver",
             headerTitleAlign: "center",
@@ -97,12 +103,6 @@ export default function App() {
             headerTintColor: "lightgrey",
             headerRight: () => <Close goTo="SendDeliver" />,
           }}
-        />
-
-        <Stack.Screen
-          name="SendDeliver"
-          component={SendOrDeliver}
-          options={{ title: "muvver" }}
         />
       </Stack.Navigator>
     </NavigationContainer>
